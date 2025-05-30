@@ -1,0 +1,14 @@
+<!-- This error page extends the main layout template to ensure a consistent look and feel with the rest of the application. When an error occurs, this page will display the specific error message and offer the user a button to navigate back to the home page and try again. -->
+
+{% extends "main_layout.html" %}
+{% block content %}
+ <!-- Here I display the specific error message that was passed to this page. -->
+<div class="error-page">
+    <h2>{{ error }}</h2>
+<!--  message to prompt the user to retry their previous action. -->
+     <p>Oops. Please try again.</p>
+  <!-- I included a button that allows the user to navigate back to the home page. I used the "btn" CSS class to match the application's styles. -->
+    <a href="/" class="btn">Return to Home Page</a>
+   
+</div>
+{% endblock %}

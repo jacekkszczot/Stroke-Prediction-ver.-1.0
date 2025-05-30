@@ -1,0 +1,268 @@
+/* This is my CSS file for stroke risk app. I wanted to make it look like a real medical app while keeping it simple and clear */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/background.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+h1, h2, h3 {
+    color: #234567;
+}
+
+/* Navigation Styles */
+.nav {
+    background-color: #234567;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #456789;
+    border-radius: 5px;
+}
+
+.nav a:hover {
+    background-color: #567890;
+}
+
+.user-info {
+    color: white;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+/* Banner Styles */
+.banner-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0; 
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.banner {
+    width: 80%; 
+    max-width: 800px; 
+    height: 150px; 
+    object-fit: contain; 
+}
+
+/* Form Styles */
+.edit-user-form,
+.login-card,
+.register-card {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.edit-user-form h2,
+.login-card h2,
+.register-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #234567;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #234567;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Button Styles */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #547d66;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #2f5405;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+    color: black;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+.button-group {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ddd;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #458f9c;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #66a995;
+}
+
+tr:hover {
+    background-color: #f399a7;
+}
+
+/* Alert Styles */
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #D4EDDA;
+    color: #155724;
+}
+
+.alert-error {
+    background-color: #F8D7DA;
+    color: #721C24;
+}
+
+/* Patient Info Styles */
+.info-value {
+    padding: 8px;
+    background: #f5f5f5;
+    border-radius: 4px;
+    min-height: 35px;
+    border: 1px solid #DDDDDD;
+}
+
+/* Layout Styles */
+.patient-section {
+    padding: 20px;
+}
+
+.import-section {
+    margin: 20px 0;
+    text-align: right;
+}
+
+.add-patient-form {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(242, 245, 242, 0.8);
+    border-radius: 10px;
+}
+
+.separator {
+    height: 1px;
+    background-color: #dee2e6;
+    margin: 20px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .edit-user-form,
+    .login-card,
+    .register-card {
+        max-width: 100%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .form-row {
+        width: 100%;
+    }
+}
+/* Patient Area Styles */
+.form-row {
+    display: column;
+    gap: 5px;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 0 0 auto;
+    margin: 15px 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 300px;
+    max-width: 400px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

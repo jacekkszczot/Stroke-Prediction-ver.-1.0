@@ -1,0 +1,22 @@
+<!-- I created this template to change user profile details. App displays and updates email and name for the logged in user.-->
+{% extends "main_layout.html" %}
+{% block content %}
+<div class="edit-user-form">
+    <h2>Edit User Profile</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ user['name'] }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user['email'] }}" required>
+        </div>
+        <button type="submit" class="btn">Update User Profile</button>
+    </form>
+    <br>
+    <form action="{{ url_for('delete_user') }}" method="POST" onsubmit="return confirm('Are you sure you want to delete your account? This action cannot be undone.');">
+    <button type="submit" class="btn btn-danger">Delete Account</button>
+</form>
+</div>
+{% endblock %}

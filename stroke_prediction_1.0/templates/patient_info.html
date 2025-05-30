@@ -1,0 +1,61 @@
+<!-- When a user navigates to this page, they will see all the key details about the selected patient, including their personal information, health metrics, and other relevant data. 
+I also included a button to allow the user to easily navigate back to the patient list page.-->
+{% extends "main_layout.html" %}
+{% block content %}
+<center>
+<div class="patient-info">
+    <h2>Patient Details</h2>
+
+    <div class="info-card">
+        <div class="info-row">
+            <div class="info-group">
+                <label>Gender:</label> {{ patient.gender }}
+            </div>
+
+            <div class="info-group">
+                <label>Patient Age:</label> {{ patient.age }}
+            </div>
+
+            <div class="info-group">
+                <label>Hypertension:</label> {{ "Yes" if patient.hypertension == 1 else "No" }}
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-group">
+                <label>Ever Married:</label> {{ patient.ever_married }}
+            </div>
+
+            <div class="info-group">
+                <label>Work Type:</label> {{ patient.work_type }}
+            </div>
+
+            <div class="info-group">
+                <label>Residence:</label> {{ patient.residence_type }}
+            </div>
+        </div>
+
+        <div class="info-row">
+            <div class="info-group">
+                <label>Glucose Level:</label> {{ patient.avg_glucose_level }}
+            </div>
+
+            <div class="info-group">
+                <label>BMI:</label> {{ patient.bmi }}
+            </div>
+
+            <div class="info-group">
+                <label>Smoking Status:</label> {{ patient.smoking_status }}
+            </div>
+            <div class="info-group">
+                <label>Heart Disease: </label> {{ "Yes" if patient.heart_disease == 1 else "No" }}
+            </div>
+        </div><br><br><br>
+
+        <div class="button-group">
+            <a href="{{ url_for('patients_list') }}" class="btn">Back to Patient List</a>
+        </div>
+    </div>
+</div></center>
+
+{% endblock %}

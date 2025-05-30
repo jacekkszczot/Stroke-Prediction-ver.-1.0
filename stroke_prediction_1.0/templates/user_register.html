@@ -1,0 +1,28 @@
+<!-- Registration page for new users. Similar to login but with an extra field for full name.
+    Using the same layout and style as login page to keep things consistent. -->
+
+    {% extends "main_layout.html" %}
+    {% block content %}
+    <div class="register-page">
+        <div class="register-card">
+          <h2>New User Registration</h2>
+      
+       <!-- Registration form with name, email and password fields.
+            Made all fields required to ensure we get complete user data -->
+            <form method="POST" action="{{ url_for('user_register') }}">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+          {% endblock %}

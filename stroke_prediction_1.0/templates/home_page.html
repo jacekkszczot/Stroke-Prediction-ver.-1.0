@@ -1,0 +1,33 @@
+<!-- This is my home page template that uses the main layout. I made two different views - one for logged in users 
+and one for guests, because I only want to show the medical content to registered user only. -->
+
+{% extends "main_layout.html" %}
+{% block content %}
+{% if 'user_id' in session %}
+<div class="home-content">
+  <center><h1>Stroke Management App</h1></center> 
+
+   <!-- Main welcome message explaining what the app does and how to use it. -->
+   <h3><center>Welcome to the Stroke Prediction 1.0 App <br><br>
+   This is a specialised tool designed to assist healthcare professionals in assessing stroke risk.<br>
+   By harnessing data-driven insights and advanced algorithms,<br>
+   this app provides personalised risk predictions based on key patient health indicators,<br>
+   enabling you to make informed and proactive decisions in patient care.<br>
+   With Stroke Prediction, you gain a reliable and efficient resource, tailored to support your clinical assessments<br>
+   and ultimately improve patient outcomes.<br><br>
+   In this app, as a registered and logged-in user, you can add new patients and upload updated patient data<br>
+   to the database using the "Update Dataset" button.<br>
+   Please remember to name the new data file "dataset" and place it in the application's folder, inside the "data" folder.<br><br>
+   Good luck with your work!</center></h3>
+   
+   <!-- Added medical themed image for logged-in users -->
+  <center> <img src="/static/images/hearth.png" alt="Invitation" /></center>
+</div>
+{% else %}
+<div class="home-content">
+   <!-- Simple welcome image for not logged users -->
+   
+       <center><img src="/static/images/welcome.png" alt="Invitation" /></center>
+</div>
+{% endif %}
+{% endblock %}

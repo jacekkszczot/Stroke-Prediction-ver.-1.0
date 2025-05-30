@@ -1,0 +1,22 @@
+<!-- Login page template that extends main layout. I kept it super simple to make it easy for users to log in.
+    Just email and password fields - all the security stuff is handled in the backend. -->
+
+    {% extends "main_layout.html" %}
+    {% block content %}
+<div class="login-page">
+  <div class="login-card">
+    <h2>Login</h2>
+    <!-- Basic login form with email and password fields.Added 'required' to make sure users fill out both fields -->
+    <form method="POST" action="{{ url_for('user_login') }}">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn">Login</button>
+    </form>
+</div>
+          {% endblock %}

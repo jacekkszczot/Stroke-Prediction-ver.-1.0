@@ -1,0 +1,43 @@
+<!-- This page extends the main layout template to maintain a consistent look and feel with the rest of the application. When a new patient is added, this page will display a success message, the calculated stroke risk assessment, and the specific risk factors that were considered.
+
+My aim was to make the results easy to understand, even for users without a medical background. I used simple language, included explanations for the risk factors, and provided a button to navigate back to the patient list page.
+
+In the future, this page could be expanded to include more detailed information, such as recommendations for reducing the patient's stroke risk or links to educational resources. However, for this initial version, I wanted to prioritize a clean and focused presentation of the core assessment data.
+-->
+{% extends "main_layout.html" %}
+{% block content %}
+<center>
+<div class="result-container">
+    <h2>Patient Added Successfully</h2>
+    
+    <div class="risk-result">
+        <h3>Stroke Risk Assessment</h3>
+        <div class="risk-value">
+            Risk Level: {{ "%.1f"|format(stroke_risk * 100) }}%
+        </div>
+        
+        <div class="risk-factors">
+            <h4>Risk Factors Considered:</h4>
+            <ul>
+                {% if hypertension == 1 %}
+                    <li>Hypertension detected (+30%)</li>
+                {% endif %}
+                {% if age > 60 %}
+                    <li>Age above 60 (+30%)</li>
+                {% endif %}
+                {% if glucose > 200 %}
+                    <li>High glucose level (+20%)</li>
+                {% endif %}
+                {% if smoking.lower() == 'smokes' %}
+                    <li>Current smoker (+20%)</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div><br><br><br>
+
+    <div class="actions">
+        <a href="{{ url_for('patients_list') }}" class="btn">Back to Patient List</a>
+    </div>
+</div>
+</center>
+{% endblock %}

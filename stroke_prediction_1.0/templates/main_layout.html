@@ -1,0 +1,56 @@
+<!-- This is my main template for the app. I copied some navigation and button styles here from main.css because they're specific 
+to this layout and I'll be using these buttons across different pages. Makes it easier to find and edit everything related to page structure. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Stroke Prediction 1.0</title>
+   
+   <!-- Keeping main.css just for general styles like forms, content boxes and alerts that are used across different pages -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+   
+   <!-- Put all layout and interaction styles here - things like navigation, banner, buttons and user info.
+        Since these control how users move through the app, it makes sense to keep them together -->
+   
+
+</style>
+</head>
+<body>
+   <!-- Banner at the top - kept simple with just the logo -->
+   <div class="banner-container">
+       <img src="/static/images/banner.jpg" alt="Banner" class="banner">
+   </div>
+   
+   <!-- Navigation changes what it shows based on whether user is logged in or not
+        Used Jinja2 templates to check login status and show the right buttons -->
+   <div class="nav">
+       <a href="/" class="btn">Home Page</a>
+       {% if 'user_id' in session %}
+           <a href="{{ url_for('patients_list') }}" class="btn">Patient Base</a>
+           <span class="user-info">Welcome, {{ session.get('user_name', 'User') }}</span>
+           <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+       {% else %}
+           <a href="{{ url_for('user_login') }}" class="btn">Login</a>
+           <a href="{{ url_for('user_register') }}" class="btn">Register</a>
+       {% endif %}
+       {% if 'user_id' in session %}
+        <a href="{{ url_for('edit_user') }}">Edit Profile</a>
+    {% endif %}
+   </div>
+   
+   <!-- Main content area for other pages to put their stuff
+        Also shows any success/error messages at the top -->
+   <div class="content">
+       {% with messages = get_flashed_messages() %}
+           {% if messages %}
+               {% for message in messages %}
+                   <div class="alert">{{ message }}</div>
+               {% endfor %}
+           {% endif %}
+       {% endwith %}
+       {% block content %}{% endblock %}
+   </div>
+</body>
+</html>
